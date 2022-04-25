@@ -2,7 +2,7 @@ spring:
   application:
     name: EVENT-SOURCING-SERVICE
 server:
-  port: 8003
+  port: 8069
 eureka:
   client:
     serviceUrl:

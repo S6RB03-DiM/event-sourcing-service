@@ -1,22 +1,29 @@
 package com.dinnerinmotion.eventsourcing.entity;
 
-import org.springframework.data.annotation.Id;
-
 import java.util.UUID;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+import javax.persistence.*;
+
+@Entity
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@Table(name = "events")
 public class Event {
     @Id
-    private UUID id;
-    private String event;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long eventId;
+    private UUID entityId;
+    private String topic;
+    private String payload;
 
-    public Event(String event) {
-        this.id = UUID.randomUUID();
-        this.event = event;
-    }
-
-    public Event(UUID id, String event) {
-        super();
-        this.id = id;
-        this.event = event;
+    public Event(UUID entityId, String topic, String payload) {
+        this.entityId = entityId;
+        this.topic = topic;
+        this.payload = payload;
     }
 }

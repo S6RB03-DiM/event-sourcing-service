@@ -1,16 +1,10 @@
 package com.dinnerinmotion.eventsourcing.repository;
 
+import org.springframework.data.jpa.repository.JpaRepository;
 import com.dinnerinmotion.eventsourcing.entity.Event;
-import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
 
-import java.util.List;
-import java.util.UUID;
-
 @Repository
-public interface EventRepository extends MongoRepository<Event, UUID> {
-
-    public Event findEventById(UUID id);
-    public List<Event> findByEvent(String event);
-
+public interface EventRepository extends JpaRepository<Event, Long> {
+    Event findByEventId(Long id);
 }
