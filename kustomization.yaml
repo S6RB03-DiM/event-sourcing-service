@@ -1,0 +1,4 @@
+commonLabels:
+  app: dim-cluster
+resources:
+  - deployment.yaml
