@@ -7,6 +7,11 @@ spec:
     matchLabels:
       app: event-sourcing-service
   replicas: 1 # Number of replicas that will be created for this deployment
+  strategy:
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+  minReadySeconds: 5
   template:
     metadata:
       labels:
