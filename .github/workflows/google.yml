@@ -10,7 +10,7 @@
 #
 # For more support on how to run the workflow, please visit https://github.com/google-github-actions/setup-gcloud/tree/master/example-workflows/gke-kustomize
 
-name: Build and Deploy to GKE
+name: Scan with Snyk, Build and Deploy to GKE
 
 on:
   push:
@@ -55,6 +55,7 @@ jobs:
         sarif_file: snyk.sarif
         
   setup-build-publish-deploy:
+    needs: snyk
     name: Setup, Build, Publish, and Deploy
     runs-on: ubuntu-latest
     environment: production
