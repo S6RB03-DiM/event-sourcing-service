@@ -34,4 +34,9 @@ public class EventController {
         log.info("inside create event method of EventController");
         eventService.saveEvent(event);
     }
+
+    @GetMapping(value="test")
+    public String getAccountsByEmpId() {
+        return "hello world";
+    }
 }
