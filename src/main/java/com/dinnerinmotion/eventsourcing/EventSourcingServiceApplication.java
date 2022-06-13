@@ -6,7 +6,6 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.kafka.support.KafkaHeaders;
 import org.springframework.messaging.handler.annotation.Header;
@@ -15,7 +14,6 @@ import java.util.List;
 import java.util.UUID;
 
 @SpringBootApplication
-@EnableEurekaClient
 @Slf4j
 public class EventSourcingServiceApplication {
 	private final String groupKafka = "eventSourcing";
